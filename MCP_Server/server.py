@@ -9,3 +9,4 @@ import files_util as fu
 
 # Create an MCP server
 mcp = FastMCP("notes-tools")
+mcp.run(transport="stdio")
