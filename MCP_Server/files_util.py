@@ -20,6 +20,34 @@ def read_lines(path: str) -> List[str]:
         return []
 
 
+def write_lines(path: str, content: List[str]) -> None:
+    """
+    Writes lines to a file at the given absolute path
+    
+    :param path: Path to the file to write lines to
+    :type path: str
+    :param content: List of lines to write to the file
+    :type content: List[str]
+    """
+    with open(path, "w", encoding="utf-8") as f:
+        f.writelines(content)
+
+
+def insert_lines_at(path: str, line_number: int, content: List[str]) -> None:
+    """
+    Inserts lines at a specific line number in a file
+    
+    :param path: Path to the file to modify
+    :type path: str
+    :param line_number: Line number where to insert content (0-indexed)
+    :type line_number: int
+    :param content: List of lines to insert
+    :type content: List[str]
+    """
+    existing_lines = read_lines(path)
+    write_lines(path, existing_lines[:line_number] + content + existing_lines[line_number:])
+
+
 def load_config() -> Dict[str, str]:
     return {
         "notes_dir_path": os.getenv("NOTES_DIR_PATH", "."),
