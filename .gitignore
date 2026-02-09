@@ -1,6 +1,8 @@
 .env
-.vscode/
+.vscode/*
 __pycache__/
 .venv/
 env/
 venv/
+
+!.vscode/mcp.json
