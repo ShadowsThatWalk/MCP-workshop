@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP, Context
 from mcp.server.session import ServerSession
-from mcp.shared.exceptions import UrlElicitationRequiredError
-from mcp.types import ElicitRequestURLParams
+from mcp.types import ElicitRequestURLParams, DirectoryResource
+from mcp.server.fastmcp.resources.types import DirectoryResource
 
 from typing import Optional
 
@@ -60,3 +60,20 @@ async def add_task(ctx: Context[ServerSession, None], title: str | None = None, 
     # Here you would add the task to your task manager, e.g. by calling an API or updating a database
     # For demonstration purposes, we'll just return a success message
     return f"Task '{new_title}' added successfully with {len(subtasks)} subtasks."
+
+#--------------- task 04 ----------------
+@mcp.prompt(
+    description="Create tasks from a conversation.",
+    tags=["tasks", "conversation"],
+)
+def create_tasks_from_conversation() -> str:
+    return """Given the following conversation, extract any tasks mentioned and add them to the backlog. 
+    If a task has subtasks, add them as well. 
+    Conversation:
+    ---
+    User: I need to prepare for the meeting tomorrow.
+    Assistant: What do you need to prepare?
+    User: I need to create a presentation and review the project report.
+    ---
+    In this example, you would create a task "Prepare for the meeting tomorrow" with two subtasks: "Create a presentation" and "Review the project report". 
+    Please extract the tasks and subtasks from the conversation and add them to the backlog using the add_task tool."""

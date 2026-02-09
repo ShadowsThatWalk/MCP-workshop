@@ -53,7 +53,8 @@ def append_lines(path: str, content: List[str]) -> None:
 
 def load_config() -> Dict[str, str]:
     return {
-        "notes_dir_path": os.getenv("NOTES_DIR_PATH", "."),
+        "notes_dir_path": os.getenv("NOTES_DIR_PATH", "./FakeNotes/"),
+        "tasks_file_path": os.getenv("TASKS_FILE_PATH", "./FakeNotes/tasks.md"),
     }
 
   
@@ -77,7 +78,7 @@ def normalize_rel_path(path: str) -> str:
         return path
     else:
         cfg = load_config()
-        notes_dir_path = cfg.get("notes_dir_path", ".")
+        notes_dir_path = cfg.get("notes_dir_path", "./FakeNotes/")
         return os.path.join(notes_dir_path, path)
 
 class TextHeader:
