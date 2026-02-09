@@ -33,7 +33,6 @@ You'll need to create an MCP resource that exposes your notes directory structur
 - **Security**: Ensure the resource only exposes files within your notes directory
 
 ### Implementation Tips:
-- Use `os.walk()` or `os.listdir()` to traverse directories
 - Filter for relevant file types (`.md`, `.markdown`)
 - Return a structured representation (consider JSON format)
 - Handle nested folder structures appropriately

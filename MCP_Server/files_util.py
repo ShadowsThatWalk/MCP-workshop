@@ -74,6 +74,9 @@ def normalize_rel_path(path: str) -> str:
     if not path.endswith((".md", ".markdown")):
         path += ".md"
     
+    if path == ".":
+        path = "./"
+    
     if path.startswith("/"):
         return path
     else:
@@ -138,3 +141,29 @@ def format_task_lines(task_header: str, subtasks: Optional[List[str]]) -> List[s
         s_clean = s.strip()
         lines.append(f"    - [ ] {s_clean}\n")
     return lines
+
+def get_note_property(full_path: str, property_name: str) -> Optional[str]:
+    """
+    Extract a property value from the front matter of a markdown file.
+    Assumes front matter is in YAML format and delimited by '---' lines.
+    """
+    lines = read_lines(full_path)
+    in_front_matter = False
+    property_name = property_name.strip().lower()
+
+    for line in lines:
+        line = line.strip()
+        if line == "---":
+            in_front_matter = not in_front_matter
+            continue
+
+        if not in_front_matter:
+            continue
+
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        if key.strip().lower() == property_name:
+            return value.strip()
+
+    return None
