@@ -1,5 +1,5 @@
 import os
-from typing import Dict, List
+from typing import Dict, List, Optional
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -47,6 +47,9 @@ def insert_lines_at(path: str, line_number: int, content: List[str]) -> None:
     existing_lines = read_lines(path)
     write_lines(path, existing_lines[:line_number] + content + existing_lines[line_number:])
 
+def append_lines(path: str, content: List[str]) -> None:
+    existing_lines = read_lines(path)
+    write_lines(path, existing_lines + content)
 
 def load_config() -> Dict[str, str]:
     return {
@@ -83,6 +86,27 @@ class TextHeader:
         self.header = header
         self.line_number = line_number
 
+def extract_header(full_path: str, header_name: str) -> TextHeader | None:
+    lines = read_lines(full_path)
+    headers: list[TextHeader] = []
+    in_code_block = False
+    header_name = header_name.strip().lower()
+
+    for i, line in enumerate(lines):
+        line = line.strip()
+        if line.startswith("```"):
+            in_code_block = not in_code_block
+            continue
+
+        if in_code_block or not line.startswith("#"):
+            continue
+
+        hashes = len(line) - len(line.lstrip("#"))
+        if line[hashes:].strip().lower() == header_name:
+            return TextHeader(hashes, line[hashes:].strip(), i)
+
+    return None
+
 def extract_headers(full_path: str) -> list[TextHeader]:
     """
     Extract headers from a markdown file.
@@ -104,3 +128,12 @@ def extract_headers(full_path: str) -> list[TextHeader]:
         headers.append(TextHeader(hashes, line[hashes:].strip(), i))
 
     return headers
+
+def format_task_lines(task_header: str, subtasks: Optional[List[str]]) -> List[str]:
+    lines: List[str] = [f"- [ ] {task_header}\n"]
+    if not subtasks:
+        return lines
+    for s in subtasks:
+        s_clean = s.strip()
+        lines.append(f"    - [ ] {s_clean}\n")
+    return lines
