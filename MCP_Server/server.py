@@ -10,3 +10,10 @@ import files_util as fu
 # Create an MCP server
 mcp = FastMCP("notes-tools")
 mcp.run(transport="stdio")
+
+@mcp.tool(
+    description="A simple tool that says hello.",
+    tags=["greeting"],
+)
+def hello_world(name: str = "World") -> str:
+    return f"Hello, {name}!"
