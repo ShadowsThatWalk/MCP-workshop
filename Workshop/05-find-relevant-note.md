@@ -51,12 +51,24 @@ Create an MCP prompt that coordinates the entire workflow:
 3. Select the most promising files (suggest 2-5 files max)
 4. Use your existing `read_note` tool to get content
 5. Present findings in a structured way
+To make this faster, you can also access the directory structure resource directly in the prompt function, then display the result directly in the prompt message.
 
 ### Prompt Design Considerations:
 - How specific should the file selection criteria be?
 - Should you prioritize recent files or file names that match?
 - How to handle when no relevant files are found?
 - What format should the final output take?
+
+## Step 3 (Optional): Refine querying with file tags:
+Some files have properties listed at the top of the file in the form of key-value pairs. E.g.
+```markdown
+---
+prop1: value1
+prop2: value2
+---
+rest of your text here
+```
+Optionally, also return the tags associated with each directory path so that the LLM can better choose which note markdown files are relevant for the given query.
 
 ## Step 3: Test with MCP Inspector First
 
