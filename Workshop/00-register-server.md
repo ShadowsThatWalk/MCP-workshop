@@ -30,7 +30,6 @@ mcp.run(transport="stdio")
 ### 2. Check with the inspector
 
 ```bash
-npm install -D @modelcontextprotocol/inspector
 npx @modelcontextprotocol/inspector python3 server.py
 ```
 This will start the server and open an inspector in your browser to connect to your server. From there, you can check that it can connect and all the currently registered tools, prompts and resources (which are currently non-existant). Use the "ping" tab to double check that your MCP server is responsive.
@@ -54,7 +53,7 @@ Open the mcp.json file directly;
 
 **Cursor**
 Open the mcp.json file directly;
- - MCP server for agetns in a specific repo: open `./.vscode/mcp.json` 
+ - MCP server for agents in a specific repo: open `./.vscode/mcp.json` 
  - MCP server usable by all agents in all repos:
     - macOS: `~/.cursor/mcp.json`
     - Windows: `%APPDATA%\Cursor\mcp.json`

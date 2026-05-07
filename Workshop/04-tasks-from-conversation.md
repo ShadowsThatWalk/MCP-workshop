@@ -76,24 +76,15 @@ Specify in the description of this tool that the return value are the instructio
     - Ask: \"Analyze our conversation for tasks\" (should create individual tasks)
 3. **Observe the behavior** - the AI should automatically identify actionable items and use your `add_task` tool
 
-## Key Takeaways
+## Self-Assessment Questions
 
-### MCP Prompts:
-- Use `@mcp.prompt()` for AI instruction templates
-- Support variable substitution and conditional logic
-- Great for complex, multi-step AI workflows
-- Test with MCP Inspector since VS Code Chat doesn't support them
+1. What is the difference between an MCP prompt and an MCP tool?
+2. Why would you convert an MCP prompt into a tool?
+3. How can an MCP prompt reference and orchestrate other MCP tools?
+4. What are the advantages of using prompt templates with variable substitution over hardcoded prompts?
+5. Why is it important to test prompt-driven workflows with realistic conversation examples?
 
-### Tool Integration:
-- MCP tools can orchestrate other MCP tools
-- Prompts can reference and instruct use of other tools
-- Converting prompts to tools enables VS Code Chat compatibility
-
-### Best Practices:
-- Provide clear, specific instructions in prompts
-- Handle both individual and grouped task scenarios
-- Test thoroughly with realistic conversation examples
-- Always validate that referenced tools work independently
+> Check your answers in [self-assessment-answers/04-tasks-from-conversation.md](self-assessment-answers/04-tasks-from-conversation.md)
 
 ## Next Steps
 

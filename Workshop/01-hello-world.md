@@ -36,7 +36,6 @@ Use the extra paramters in `@mcp.tool()` to optionally set the description, tags
 
 1. Test your tool through the inspector: 
 ```bash
-npm install -D @modelcontextprotocol/inspector
 npx @modelcontextprotocol/inspector .venv/bin/python3 MCP_Server/server.py
 ```
 
@@ -52,9 +51,11 @@ Congratulations! You've created your first MCP tool. In the next workshop, you'l
 - Handle more complex data types
 - Create tools that interact with external resources
 
-## Key Takeaways
+## Self-Assessment Questions
 
-- MCP tools are regular Python functions with the `@mcp.tool()` decorator
-- Type hints and docstrings are crucial for MCP tool discovery and usability
-- Default parameters make tools more user-friendly
-- FastMCP handles all the protocol details automatically
+1. What does the `@mcp.tool()` decorator do to a regular Python function?
+2. Why are type hints and docstrings important for MCP tools?
+3. How do default parameter values affect tool usability?
+4. What protocol details does FastMCP handle for you behind the scenes?
+
+> Check your answers in [self-assessment-answers/01-hello-world.md](self-assessment-answers/01-hello-world.md)

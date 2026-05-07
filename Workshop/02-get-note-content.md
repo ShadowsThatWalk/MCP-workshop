@@ -90,24 +90,15 @@ Test the tool through your MCP client (like Claude Desktop or another MCP-compat
 
 When working correctly, all should return the content of your `tasks.md` file, which contains your workshop planning notes.
 
-## Key Takeaways
+## Self-Assessment Questions
 
-### MCP Resources:
-- Perfect for exposing structured content via URIs
-- Great for browsing and referencing data
-- Not yet supported in all MCP clients (like VS Code Chat)
-- Use URI patterns to capture parameters
+1. What is the key difference between an MCP resource and an MCP tool?
+2. When would you choose to expose functionality as a resource rather than a tool?
+3. Why might you need to provide both a resource and a tool for the same data?
+4. What does the `{path*}` syntax in a resource URI pattern do?
+5. Why is it important to handle errors gracefully in MCP tools that access the file system?
 
-### MCP Tools:
-- Better for actions and computations
-- Widely supported across MCP clients
-- Can do everything resources can do, just with function calls
-
-### Best Practices:
-- Use utility functions for common operations
-- Always handle errors gracefully
-- Provide clear documentation in docstrings
-- Consider creating both resource and tool versions for maximum compatibility
+> Check your answers in [self-assessment-answers/02-get-note-content.md](self-assessment-answers/02-get-note-content.md)
 
 ## Next Steps
 
