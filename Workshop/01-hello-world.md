@@ -36,7 +36,7 @@ Use the extra paramters in `@mcp.tool()` to optionally set the description, tags
 
 1. Test your tool through the inspector: 
 ```bash
-npx @modelcontextprotocol/inspector .venv/bin/python3 MCP_Server/server.py
+npx @modelcontextprotocol/inspector --transport stdio .venv/bin/python3  MCP_Server/server.py
 ```
 
 2. Test the tool through your MCP client (like Claude Desktop or another MCP-compatible application):

@@ -30,7 +30,7 @@ mcp.run(transport="stdio")
 ### 2. Check with the inspector
 
 ```bash
-npx @modelcontextprotocol/inspector python3 server.py
+npx @modelcontextprotocol/inspector --transport stdio python3 server.py
 ```
 This will start the server and open an inspector in your browser to connect to your server. From there, you can check that it can connect and all the currently registered tools, prompts and resources (which are currently non-existant). Use the "ping" tab to double check that your MCP server is responsive.
 
