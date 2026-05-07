@@ -118,23 +118,15 @@ Create a tool that implements the entire workflow programmatically:
    - Very broad queries that match many files
    - Typos in search terms
 
-## Key Takeaways
+## Self-Assessment Questions
 
-### Advanced MCP Patterns:
-- Resources can provide context for intelligent decision making
-- Prompts can orchestrate complex multi-tool workflows
-- Tools can implement the same logic for broader compatibility
+1. How can MCP resources provide context that improves an LLM's decision-making?
+2. What are the trade-offs between AI-driven file selection (via prompts) and programmatic file selection (via tools)?
+3. Why should complex MCP workflows be broken into individually testable components?
+4. What security considerations apply when exposing file system access through MCP resources?
+5. How do you design an MCP system for extensibility when requirements will evolve?
 
-### System Design:
-- Break complex workflows into testable components
-- Consider both AI-driven and programmatic approaches
-- Design for both specific and general use cases
-
-### Best Practices:
-- Always test components individually before integration
-- Consider performance implications of file system operations
-- Provide clear feedback when no relevant content is found
-- Design for extensibility and future enhancements
+> Check your answers in [self-assessment-answers/05-find-relevant-note.md](self-assessment-answers/05-find-relevant-note.md)
 
 ## Next Steps
 

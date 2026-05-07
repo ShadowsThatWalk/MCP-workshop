@@ -103,23 +103,15 @@ We will now use `answer = ctx.elicit("some question to the user")` to gather mor
 3. **Verify the interaction**:
    - After providing the title, the task should be added; Check your `tasks.md` file to confirm
 
-## Key Takeaways
+## Self-Assessment Questions
 
-### Interactive MCP Tools:
-- Use `async def` for functions that need `ctx.elicit()`
-- `ctx.elicit()` allows gathering missing information from users
-- Always await async operations properly
+1. When does an MCP tool need to be `async`, and what triggers this requirement?
+2. What does `ctx.elicit()` do and when should you use it?
+3. Why are mutable default arguments (like `[]`) dangerous in Python, and how should you handle them in MCP tools?
+4. Why is it important to return meaningful confirmation messages from tools that modify data?
+5. Why should you validate input parameters before performing file operations?
 
-### File Operations:
-- Use utility functions for consistent file handling
-- Always handle potential file operation errors
-- Maintain existing file formatting and structure
-
-### Best Practices:
-- Avoid mutable default arguments
-- Provide clear user prompts with `ctx.elicit()`
-- Return meaningful confirmation messages
-- Validate input parameters before processing
+> Check your answers in [self-assessment-answers/03-add-new-task.md](self-assessment-answers/03-add-new-task.md)
 
 ## Next Steps
 
